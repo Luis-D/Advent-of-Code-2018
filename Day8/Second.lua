@@ -10,25 +10,25 @@ function Recursive (Table,Pointer)
     local New_Acc = 0
         local Header = {Table[Pointer],Table[Pointer+1]}
         Pointer=Pointer+2;
-        print(Header[1] .. "," .. Header[2])
+        --print(Header[1] .. "," .. Header[2])
 
         if Header[1] > 0 then 
             local tmp = {}
             for i = 1,Header[1] do
                 New_new_Acc, Pointer = Recursive(Table,Pointer);
-                print(Header[1] .. "," .. Header[2].." | Rec ("..i.."): "..New_new_Acc);
+          --      print(Header[1] .. "," .. Header[2].." | Rec ("..i.."): "..New_new_Acc);
                 table.insert(tmp,New_new_Acc);
             end
 
             for i=1, Header[2] do
                 local Cur = Table[Pointer];
                 Pointer = Pointer+1
-                io.write("    "..Cur)
+            --    io.write("    "..Cur)
                 if(Cur > 0 and Cur <= Header[1]) then
-                    io.write(" | "..tmp[Cur])
+            --        io.write(" | "..tmp[Cur])
                     New_Acc = New_Acc +tmp[Cur]
                 end
-                print()
+              --  print()
             end
         else
             for i=1, Header[2] do
@@ -37,7 +37,7 @@ function Recursive (Table,Pointer)
             end
             
         end
-        print(Header[1] .. "," .. Header[2].. " | "..New_Acc)
+        --print(Header[1] .. "," .. Header[2].. " | "..New_Acc)
     return New_Acc,Pointer
 end
 
